@@ -65,7 +65,7 @@ persist.debug.coresight.config=stm-events
 
 # Display
 PRODUCT_PROPERTY_OVERRIDES += \
-debug.egl.hw=0 \
+debug.egl.hw=1 \
 debug.enable.sglscale=1 \
 debug.gralloc.enable_fb_ubwc=1 \
 debug.mdpcomp.logs=0 \
@@ -87,6 +87,13 @@ vendor.display.disable_skip_validate=1 \
 vendor.gralloc.enable_fb_ubwc=1 \
 sys.display-size=1920x1080
 
+# Rendering
+PRODUCT_PROPERTY_OVERRIDES += \
+debug.sf.disable_hwc=0 \
+debug.sf.recomputecrop=0 \
+persist.hwc.ptor.enable=true \
+debug.sf.gpu_comp_tiling=1
+
 # DPM
 PRODUCT_PROPERTY_OVERRIDES += \
 persist.vendor.dpm.feature=0
@@ -98,6 +105,15 @@ drm.service.enabled=true
 # Fingerprint
 PRODUCT_PROPERTY_OVERRIDES += \
 persist.qfp=false
+
+# FIFO scheduling for UI
+PRODUCT_PROPERTY_OVERRIDES += \
+    sys.use_fifo_ui=1
+
+# Fling
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.min.fling_velocity=160 \
+    ro.max.fling_velocity=20000
 
 # Fm
 PRODUCT_PROPERTY_OVERRIDES += \
